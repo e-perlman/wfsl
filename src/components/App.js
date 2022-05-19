@@ -1,5 +1,14 @@
 import './App.css';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
+import {Navbar} from './navigation/Navbar';
+import {Header} from './navigation/Header';
+import {Footer} from './navigation/Footer';
+import {Home} from './Home';
+import {About} from './About';
+import {TeamsPlayersPage} from '../containers/TeamsPlayersPage';
+import {ChooseMyTeamPage} from '../containers/ChooseMyTeamPage';
+import {BlogPage} from '../containers/BlogPage';
+import {PlayerCard} from './player/PlayerCard';
 
 function App() {
   return (
@@ -10,6 +19,9 @@ function App() {
         <Switch>
           <Route path='/leagueplayers'>
             <TeamsPlayersPage/>
+          </Route>
+          <Route path='/leagueplayers/:id'>
+            <PlayerCard/>
           </Route>
           <Route path='/choosemyteam'>
             <ChooseMyTeamPage/>
@@ -25,6 +37,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <Footer/>
     </div>
   );
 }

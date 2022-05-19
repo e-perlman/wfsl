@@ -1,4 +1,4 @@
-export const ChoseMyTeamPage = () => {
+export const ChooseMyTeamPage = () => {
   return (
     <div>ChoseMyTeamPage</div>
   )
