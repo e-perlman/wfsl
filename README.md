@@ -4,6 +4,11 @@
 
 ## Installation
 
+1. Fork and clone the repo
+2. Cd into the project and run npm install
+3. Run the json-server with : npm run server
+4. Run the REact server with: npm start
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
