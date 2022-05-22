@@ -1,7 +1,10 @@
-import React from "react"
+import React from "react";
+import {PlayerCard} from './PlayerCard'
 export const PlayerList = ({players}) => {
-  console.log(players)
+    const playerCards=players.map(player=> <PlayerCard key={player.idPlayer} player={player}/>)
   return (
-    <div>PlayerList</div>
+    <div>
+      {playerCards}
+    </div>
   )
 }
