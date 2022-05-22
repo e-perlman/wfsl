@@ -51,7 +51,7 @@ function App() {
             <PlayerCard/>
           </Route>
           <Route path='/choosemyteam'>
-            <ChooseMyTeamPage players={players}/>
+            <ChooseMyTeamPage players={players} teams={teams}/>
           </Route>
           <Route path='/blog'>
             <BlogPage/>

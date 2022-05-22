@@ -1,15 +1,27 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-export const PlayerFilter = ({search,onSearchChange}) => {
+export const PlayerFilter = ({teams,search,onSearchChange,onTeamSelect}) => {
+    const [selectedTeam,setSelectedTeam]=useState('')
+
+    function handleClick(team){
+        setSelectedTeam(team)
+        onTeamSelect(team)
+      }
+
+    const teamList=teams.map(team=>team.strTeam)
+    const buttonList=teamList.map((team)=>(
+        <button key={team} className={selectedTeam===team?'selected':null} onClick={()=>handleClick(team)}>{team}</button>
+      ))
   return (
-    <div className="Filter">
-      <input type="text" name="search" value={search} onChange={onSearchChange} placeholder="Search..." />
-      {/* <select name="filter" onChange={onCategoryChange}>
-        <option value="All">Filter by category</option>
-        <option value="Produce">Produce</option>
-        <option value="Dairy">Dairy</option>
-        <option value="Dessert">Dessert</option>
-      </select> */}
+    <div>
+        <label>
+            <strong>Search Player Name:</strong>
+            <input type="text" name="search" value={search} onChange={onSearchChange} placeholder="Search..." />
+        </label>
+        <label>
+            <button className={selectedTeam==='All'?'selected':null} onClick={()=>handleClick('All')}>Show All</button>
+            {buttonList}
+        </label>
     </div>
   )
 }
