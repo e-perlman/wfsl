@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 import {Navbar} from './navigation/Navbar';
 import {Header} from './navigation/Header';
@@ -12,6 +12,32 @@ import {BlogPage} from '../containers/BlogPage';
 import {PlayerCard} from './player/PlayerCard';
 
 function App() {
+  const [teams,setTeams]=useState([])
+  const [players,setPlayers]=useState([])
+  
+  const fetchTeams=async ()=>{
+    try{
+      const resp= await fetch('https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=American_NWSL')
+      const data= await resp.json()
+      setTeams(data.teams)
+    }catch(error){
+      alert(error)
+    }
+  }
+  const fetchPlayers=async ()=>{
+    try{
+      const resp= await fetch(' http://localhost:3001/players')
+      const data= await resp.json()
+      setPlayers(data)
+    }catch(error){
+      alert(error)
+    }
+  }
+  useEffect(()=>{
+    fetchTeams()
+    fetchPlayers()
+  },[]);
+  
   return (
     <div className="App">
       <Router>
@@ -19,7 +45,7 @@ function App() {
         <Header/>
         <Switch>
           <Route path='/leagueplayers'>
-            <TeamsPlayersPage/>
+            <TeamsPlayersPage teams={teams} players={players}/>
           </Route>
           <Route path='/leagueplayers/:id'>
             <PlayerCard/>
