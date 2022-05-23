@@ -20,6 +20,7 @@ export const BlogPage = () => {
       <div>
         {upcomingGames.map(game=> <EventCard key={game.idEvent} game={game}/>)}
       </div>
+      <BlogForm/>
       
     </div>
   )
