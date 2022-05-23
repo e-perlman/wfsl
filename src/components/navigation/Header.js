@@ -1,11 +1,17 @@
 import React from "react"
+import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+
 export const Header = () => {
   return (
-    <div>
-      <Typography variant='h1' component='div' gutterBottom>
-        WFSL
-      </Typography>
-    </div>
+    <>
+      <CssBaseline/>
+      <Grid>
+        <Typography variant='h2' component='h2' align="center">
+          WFSL
+        </Typography>
+      </Grid>
+    </>
   )
 }

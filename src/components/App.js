@@ -1,4 +1,6 @@
 import './App.css';
+import CssBaseline from '@mui/material/CssBaseline';
+// import { DataGrid } from '@mui/x-data-grid';
 import React,{useEffect,useState} from 'react';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 import {Navbar} from './navigation/Navbar';
@@ -40,6 +42,7 @@ function App() {
   
   return (
     <div className="App">
+      <CssBaseline/>
       <Router>
         <Navbar/>
         <Header/>
