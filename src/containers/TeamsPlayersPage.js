@@ -15,7 +15,7 @@ export const TeamsPlayersPage = ({teams,players}) => {
   return (
     <div style={{display:'flex'}}>
       <TeamList teams={teams} onShowRoster={handleShowRoster}/>
-      <PlayerList players={shownPlayers}/>
+      <PlayerList players={shownPlayers} interactive={false}/>
     </div>
   )
 }

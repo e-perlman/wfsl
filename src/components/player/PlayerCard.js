@@ -1,5 +1,5 @@
 import React from "react"
-export const PlayerCard = ({player,onPlayerClick,playerButton}) => {
+export const PlayerCard = ({player,onPlayerClick,playerButton,interactive}) => {
   function handleClick(){
     onPlayerClick(player)
   }
@@ -9,7 +9,7 @@ export const PlayerCard = ({player,onPlayerClick,playerButton}) => {
       <h4>Team: {player.strTeam}</h4>
       <h4>Position: {player.strPosition}</h4>
       <br/>
-      <button onClick={handleClick}>{playerButton}</button>
+      {interactive?<button onClick={handleClick}>{playerButton}</button>:null}
       <br/>
       <img src={player.strThumb} alt={`${player.strPlayer}`}/>
     </div>

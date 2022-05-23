@@ -77,6 +77,7 @@ export const ChooseMyTeamPage = ({players,teams}) => {
           title={'All Players'} 
           playerButton={'Add to  My Team'}
           onPlayerClick={addPlayerMyTeam}
+          interactive={true}
         />
         <PlayerList 
           players={myPlayers} 
@@ -84,6 +85,7 @@ export const ChooseMyTeamPage = ({players,teams}) => {
           playerButton={'Remove from My Team'} 
           title={'My Team'} 
           onPlayerClick={removePlayerMyTeam}
+          interactive={true}
         />
       </div>
     </div>
