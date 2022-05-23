@@ -5,6 +5,7 @@ export const ChooseMyTeamPage = ({players,teams}) => {
   const [myPlayers,setMyPlayers]=useState([])
   const [search,setSearch]=useState('')
   const [selectedTeam,setSelectedTeam]=useState('All')
+  const [selectedPosition,setSelectedPosition]=useState('All')
 
   function addPlayerMyTeam(addedPlayer){
     setMyPlayers([...myPlayers,addedPlayer])
@@ -16,15 +17,28 @@ export const ChooseMyTeamPage = ({players,teams}) => {
   function handleSelectTeam(team){
     setSelectedTeam(team)
   }
+  function handlePositionChange(e){
+    setSelectedPosition(e.target.value)
+  }
   const shownPlayers=players
   .filter(player=>player.strPlayer.includes(search)) 
   .filter(player=>{
     if(selectedTeam==='All') return true;
     return selectedTeam===player.strTeam
   })
+  .filter(player=>{
+    if(selectedPosition==='All') return true;
+    return selectedPosition===player.strPosition
+  })
   return (
     <div>
-      <PlayerFilter teams={teams} search={search} onSearchChange={handleSearchChange} onTeamSelect={handleSelectTeam}/>
+      <PlayerFilter 
+        teams={teams} 
+        search={search} 
+        onSearchChange={handleSearchChange} 
+        onTeamSelect={handleSelectTeam}
+        onPositionChange={handlePositionChange}
+      />
       <div style={{display:'flex'}}>
         <PlayerList players={shownPlayers} title={'All Players'} onPlayerClick={addPlayerMyTeam}/>
         <PlayerList players={myPlayers} title={'My Team'} />
