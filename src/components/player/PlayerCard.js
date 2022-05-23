@@ -1,15 +1,17 @@
 import React from "react"
-export const PlayerCard = ({player,onPlayerClick}) => {
+export const PlayerCard = ({player,onPlayerClick,playerButton}) => {
   function handleClick(){
     onPlayerClick(player)
   }
   return (
-    <div onClick={handleClick}>
+    <div>
       <h2>{player.strPlayer}</h2>
       <h4>Team: {player.strTeam}</h4>
       <h4>Position: {player.strPosition}</h4>
+      <br/>
+      <button onClick={handleClick}>{playerButton}</button>
+      <br/>
       <img src={player.strThumb} alt={`${player.strPlayer}`}/>
-      <p>{player.strDescriptionEn}</p>
     </div>
   )
 }

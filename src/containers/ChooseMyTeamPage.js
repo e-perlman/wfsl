@@ -1,4 +1,4 @@
-import React,{useState} from "react"
+import React,{useState,useEffect} from "react"
 import { PlayerFilter } from "../components/player/PlayerFilter"
 import {PlayerList} from '../components/player/PlayerList'
 export const ChooseMyTeamPage = ({players,teams}) => {
@@ -7,7 +7,29 @@ export const ChooseMyTeamPage = ({players,teams}) => {
   const [selectedTeam,setSelectedTeam]=useState('All')
   const [selectedPosition,setSelectedPosition]=useState('All')
 
+  const fetchMyPlayers=async ()=>{
+    try{
+      const resp= await fetch(' http://localhost:3001/myTeam')
+      const data= await resp.json()
+      setMyPlayers(data)
+    }catch(error){
+      alert(error)
+    }
+  }
+  useEffect(()=>{
+    fetchMyPlayers()
+  },[]);
+
   function addPlayerMyTeam(addedPlayer){
+    fetch("http://localhost:3001/myTeam", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(addedPlayer),
+  })
+    .then((r) => r.json())
+
     setMyPlayers([...myPlayers,addedPlayer])
   }
 
@@ -40,8 +62,8 @@ export const ChooseMyTeamPage = ({players,teams}) => {
         onPositionChange={handlePositionChange}
       />
       <div style={{display:'flex'}}>
-        <PlayerList players={shownPlayers} title={'All Players'} onPlayerClick={addPlayerMyTeam}/>
-        <PlayerList players={myPlayers} title={'My Team'} />
+        <PlayerList players={shownPlayers} title={'All Players'} playerButton={'Add to  My Team'}onPlayerClick={addPlayerMyTeam}/>
+        <PlayerList players={myPlayers} playerButton={'Remove from My Team'} title={'My Team'} />
       </div>
     </div>
   )
