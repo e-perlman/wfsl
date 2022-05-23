@@ -32,6 +32,15 @@ export const ChooseMyTeamPage = ({players,teams}) => {
 
     setMyPlayers([...myPlayers,addedPlayer])
   }
+  function removePlayerMyTeam(removedPlayer){
+    const updatedMyTeam = myPlayers.filter((player) => player.id !== removedPlayer.id);
+    setMyPlayers(updatedMyTeam)
+    fetch(`http://localhost:3001/myTeam/${removedPlayer.id}`, {
+    method: "DELETE",
+    })
+    .then((r) => r.json())
+    
+  }
 
   function handleSearchChange(event){
     setSearch(event.target.value)
@@ -62,8 +71,20 @@ export const ChooseMyTeamPage = ({players,teams}) => {
         onPositionChange={handlePositionChange}
       />
       <div style={{display:'flex'}}>
-        <PlayerList players={shownPlayers} title={'All Players'} playerButton={'Add to  My Team'}onPlayerClick={addPlayerMyTeam}/>
-        <PlayerList players={myPlayers} playerButton={'Remove from My Team'} title={'My Team'} />
+        <PlayerList 
+          players={shownPlayers}
+          playerKey={'id'} 
+          title={'All Players'} 
+          playerButton={'Add to  My Team'}
+          onPlayerClick={addPlayerMyTeam}
+        />
+        <PlayerList 
+          players={myPlayers} 
+          playerKey={'idPlayer'}
+          playerButton={'Remove from My Team'} 
+          title={'My Team'} 
+          onPlayerClick={removePlayerMyTeam}
+        />
       </div>
     </div>
   )
