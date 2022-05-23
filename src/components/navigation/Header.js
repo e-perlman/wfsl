@@ -1,8 +1,11 @@
 import React from "react"
+import Typography from '@mui/material/Typography';
 export const Header = () => {
   return (
     <div>
-      <h1>WFSL</h1>
+      <Typography variant='h1' component='div' gutterBottom>
+        WFSL
+      </Typography>
     </div>
   )
 }
