@@ -10,6 +10,7 @@ export const TeamsPlayersPage = ({teams,players}) => {
   const shownPlayers=players
     .filter(player=>{
       if (showTeam===player.idTeam) return true;
+      return false;
     })
   return (
     <div style={{display:'flex'}}>
