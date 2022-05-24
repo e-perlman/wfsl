@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     display: "block",
     marginLeft: "auto",
     marginRight:" auto",
-    height: "150px",
+    height: "300px",
     width: 'auto'
   },
   button:{

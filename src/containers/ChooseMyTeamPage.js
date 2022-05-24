@@ -62,7 +62,7 @@ export const ChooseMyTeamPage = ({players,teams}) => {
     return selectedPosition===player.strPosition
   })
   return (
-    <div>
+    <div style={{justifyContent:'center',marginLeft:'auto',marginRight:'auto'}}>
       <PlayerFilter 
         teams={teams} 
         search={search} 
@@ -70,7 +70,7 @@ export const ChooseMyTeamPage = ({players,teams}) => {
         onTeamSelect={handleSelectTeam}
         onPositionChange={handlePositionChange}
       />
-      <div style={{display:'flex'}}>
+      <div style={{display:'flex',justifyContent:'center',marginLeft:'auto',marginRight:'auto'}}>
         <PlayerList 
           players={shownPlayers}
           playerKey={'id'} 
