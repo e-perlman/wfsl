@@ -1,4 +1,5 @@
-import { Button } from '@mui/material'
+import { Button,TextField,InputAdornment,FormControl,InputLabel,Select,MenuItem } from '@mui/material'
+import PersonIcon from '@mui/icons-material/Person';
 import React,{useState} from 'react'
 
 export const PlayerFilter = ({teams,search,onSearchChange,onTeamSelect,onPositionChange}) => {
@@ -15,22 +16,42 @@ export const PlayerFilter = ({teams,search,onSearchChange,onTeamSelect,onPositio
     ))
   return (
     <div>
-        <label>
-            <strong>Search Player Name:</strong>
-            <input type="text" name="search" value={search} onChange={onSearchChange} placeholder="Search..." />
-        </label>
+      <FormControl>
+        <TextField 
+          id='standard-helperText' 
+          focused
+          label='Search Player Name'
+          name="search"  
+          value={search} 
+          onChange={onSearchChange} 
+          placeholder='Player Name' 
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <PersonIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </FormControl>
+      <FormControl sx={{minWidth:150}}>
+          <InputLabel id="select-position">Filter By Player Position</InputLabel>
+          <Select
+            autoWidth={true}
+            labelId="select-position"
+            id="demo-simple-select"
+            label="Filter By Player Position"
+            defaultValue='All'
+            onChange={onPositionChange}
+          >
+            <MenuItem value='All'><em>All</em></MenuItem>
+            <MenuItem value='Forward'>Forward</MenuItem>
+            <MenuItem value='Midfielder'>Midfielder</MenuItem>
+            <MenuItem value='Defender'>Defender</MenuItem>
+            <MenuItem value='Goalkeeper'>Goalkeepr</MenuItem>
+          </Select>
+        </FormControl>
         <br/>
-        <label>
-        <strong>Select Player Position:</strong>
-        <select onChange={onPositionChange}>
-        <option value="All">All</option>
-          <option value="Forward">Forward</option>
-          <option value="Midfielder">Midfielder</option>
-          <option value="Defender">Defender</option>
-          <option value="Goalkeeper">Goalkeeper</option>
-        </select>
-      </label>
-        <br />
         <label>
             <Button className={selectedTeam==='All'?'selected':null} onClick={()=>handleTeamClick('All')}>Show All</Button>
             {buttonList}

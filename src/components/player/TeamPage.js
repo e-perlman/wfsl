@@ -10,11 +10,6 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: "auto",
       marginRight:"auto",
       
-    },
-    description:{
-        justifyContent:'center',
-        marginLeft: "auto",
-        marginRight:"auto",
     }
   }));
 export const TeamPage = ({players,team}) => {
@@ -25,7 +20,7 @@ export const TeamPage = ({players,team}) => {
         <img src={team.strTeamBanner} alt={team.strTeam}></img>
         <Typography variant='h2' component='div'>{team.strTeam}</Typography>
         <div style={{maxWidth:'50%',margin:'0 auto',float:'none'}}>
-            <Typography variant="body2" color="text.secondary" className={classes.description}>
+            <Typography variant="body2" color="text.secondary" className={classes.root}>
                 {team.strDescriptionEN}
             </Typography>
         </div>
