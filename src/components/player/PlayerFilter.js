@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import React,{useState} from 'react'
 
 export const PlayerFilter = ({teams,search,onSearchChange,onTeamSelect,onPositionChange}) => {
@@ -10,7 +11,7 @@ export const PlayerFilter = ({teams,search,onSearchChange,onTeamSelect,onPositio
 
     const teamList=teams.map(team=>team.strTeam)
     const buttonList=teamList.map((team)=>(
-        <button key={team} className={selectedTeam===team?'selected':null} onClick={()=>handleTeamClick(team)}>{team}</button>
+        <Button key={team} className={selectedTeam===team?'selected':null} onClick={()=>handleTeamClick(team)}>{team}</Button>
     ))
   return (
     <div>
@@ -31,7 +32,7 @@ export const PlayerFilter = ({teams,search,onSearchChange,onTeamSelect,onPositio
       </label>
         <br />
         <label>
-            <button className={selectedTeam==='All'?'selected':null} onClick={()=>handleTeamClick('All')}>Show All</button>
+            <Button className={selectedTeam==='All'?'selected':null} onClick={()=>handleTeamClick('All')}>Show All</Button>
             {buttonList}
         </label>
     </div>
