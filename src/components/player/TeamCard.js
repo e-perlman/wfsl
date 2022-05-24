@@ -6,12 +6,12 @@ import {
   CardMedia,
   Typography,
 } from "@material-ui/core";
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { Button,CardActions } from '@mui/material';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 400,
+    width: 500,
     justifyContent:'center'
   },
   media: {
@@ -20,6 +20,11 @@ const useStyles = makeStyles({
     marginRight:" auto",
     height: "150px",
     width: 'auto'
+  },
+  button:{
+    justifyContent:'center',
+    margin:'0 auto',
+    float:'none'
   }
 });
 
@@ -30,7 +35,6 @@ export const TeamCard = ({team,onShowRoster}) => {
   const classes = useStyles();
   return (
      <Card className={classes.root} onClick={onTeamClick}>
-     <CardActionArea>
      <CardContent style={{justifyContent:'center'}}>
        <CardMedia
          component="img"
@@ -44,13 +48,9 @@ export const TeamCard = ({team,onShowRoster}) => {
          <Typography gutterBottom variant="h5" component="div">
             {team.strStadiumLocation}
          </Typography>
-         <Typography variant="body2" color="text.secondary">
-            {team.strDescriptionEN}
-         </Typography>
        </CardContent>
-     </CardActionArea>
-     <CardActions>
-       <Button component={Link} to={`/leagueplayer/${team.strTeam}`} size="small" color="primary">
+     <CardActions className={classes.button}>
+       <Button component={Link} exact to={`/leagueplayers/${team.strTeam}`} size="small" color="primary">
          Go to {`${team.strTeam}`} Page
        </Button>
      </CardActions>
