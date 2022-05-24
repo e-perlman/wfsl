@@ -1,50 +1,56 @@
 import React from "react";
+import './Navbar.css';
 import { NavLink } from "react-router-dom";
 import Box from '@mui/material/Box';
 import {
   AppBar,
   Toolbar,
-  CssBaseline,
-  Container,
-  Typography,
+  ButtonGroup,
   makeStyles,
   Button
 } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   title: {
     flexGrow: 1
   },
-  customHeight: {
-    minHeight: 40
+  appbar:{
+    backgroundColor:'#1f3d7a'
   },
-  offset: theme.mixins.toolbar
+  navlink:{
+    color:'white',
+
+  },
+  
 }));
 const active= {
   fontWeight:'bolder',
-  color:'red'
+  textDecoration: 'underline' 
 }
+
 export const Navbar = () => {
   const classes = useStyles();
   return (
-    <AppBar position='static' className={classes.customHeight}>
-        <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Button component={NavLink} exact to="/" activeStyle={active}>
-              Home
-            </Button>
-            <Button component={NavLink} exact to="/about" activeStyle={active}>
-              About
-            </Button>
-            <Button component={NavLink} exact to="/leagueplayers" activeStyle={active}>
-              Teams and Players
-            </Button>
-            <Button component={NavLink} exact to="/choosemyteam" activeStyle={active}>
-              Choose My Team
-            </Button>
-            <Button component={NavLink} exact to="/blog" activeStyle={active}>
-              Blog
-            </Button>
+    <AppBar position='static' className={classes.appbar}>
+        <Toolbar>
+          <Box sx={{ flexGrow: 1, justifyContent:'center', display: { xs: 'none', md: 'flex' } }}>
+            <ButtonGroup variant="text" aria-label="text button group">
+              <Button variant='text' component={NavLink} exact to="/" activeStyle={active} className={classes.navlink}>
+                Home
+              </Button>
+              <Button component={NavLink} exact to="/about" activeStyle={active} className={classes.navlink}>
+                About
+              </Button>
+              <Button component={NavLink} exact to="/leagueplayers" activeStyle={active} className={classes.navlink}>
+                Teams and Players
+              </Button>
+              <Button component={NavLink} exact to="/choosemyteam" activeStyle={active} className={classes.navlink}>
+                Choose My Team
+              </Button>
+              <Button component={NavLink} exact to="/blog" activeStyle={active} className={classes.navlink}>
+                Blog
+              </Button>
+            </ButtonGroup>
           </Box>
         </Toolbar>
       </AppBar>

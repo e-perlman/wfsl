@@ -1,6 +1,7 @@
 import './App.css';
 import CssBaseline from '@mui/material/CssBaseline';
-// import { DataGrid } from '@mui/x-data-grid';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 import React,{useEffect,useState} from 'react';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
 import {Navbar} from './navigation/Navbar';
@@ -12,6 +13,7 @@ import {TeamsPlayersPage} from '../containers/TeamsPlayersPage';
 import {ChooseMyTeamPage} from '../containers/ChooseMyTeamPage';
 import {BlogPage} from '../containers/BlogPage';
 import {PlayerCard} from './player/PlayerCard';
+
 
 function App() {
   const [teams,setTeams]=useState([])
