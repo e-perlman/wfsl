@@ -53,7 +53,7 @@ export const PlayerFilter = ({teams,search,onSearchChange,onTeamSelect,onPositio
         </FormControl>
         <br/>
         <label>
-            <Button className={selectedTeam==='All'?'selected':null} onClick={()=>handleTeamClick('All')}>Show All</Button>
+            <Button className={selectedTeam==='All'?'selected':null} onClick={()=>handleTeamClick('All')}><em>Show All</em></Button>
             {buttonList}
         </label>
     </div>

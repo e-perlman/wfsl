@@ -25,7 +25,9 @@ const useStyles = makeStyles(() => ({
 }));
 const active= {
   fontWeight:'bolder',
-  textDecoration: 'underline' 
+  textDecoration: 'underline',
+  backgroundColor:'#aec2ea',
+  color:'black'
 }
 
 export const Navbar = () => {
