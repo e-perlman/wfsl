@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from 'react-router-dom'
 import {
   Card,
   CardContent,
@@ -10,12 +11,14 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 500,
+    maxWidth: 400,
     justifyContent:'center'
   },
   media: {
-    justifyContent:'center',
-    height: "100px",
+    display: "block",
+    marginLeft: "auto",
+    marginRight:" auto",
+    height: "150px",
     width: 'auto'
   }
 });
@@ -28,14 +31,14 @@ export const TeamCard = ({team,onShowRoster}) => {
   return (
      <Card className={classes.root} onClick={onTeamClick}>
      <CardActionArea>
+     <CardContent style={{justifyContent:'center'}}>
        <CardMedia
          component="img"
          className={classes.media}
          image={team.strTeamBadge}
          alt={`${team.strTeam}`}
        />
-       <CardContent>
-         <Typography gutterBottom variant="h5" component="div">
+         <Typography gutterBottom variant="h4" component="div">
             {team.strTeam}
          </Typography>
          <Typography gutterBottom variant="h5" component="div">
@@ -47,8 +50,8 @@ export const TeamCard = ({team,onShowRoster}) => {
        </CardContent>
      </CardActionArea>
      <CardActions>
-       <Button size="small" color="primary">
-         Share
+       <Button component={Link} to={`/leagueplayer/${team.strTeam}`} size="small" color="primary">
+         Go to {`${team.strTeam}`} Page
        </Button>
      </CardActions>
    </Card>
