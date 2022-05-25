@@ -45,6 +45,7 @@ export const BlogForm = ({onAddPost}) => {
             onChange={handleChange}
           />
         </label>
+        <br/>
         <label>
           Team:
           <input
@@ -53,6 +54,7 @@ export const BlogForm = ({onAddPost}) => {
             value={formData.team}
             onChange={handleChange}
           />
+          <br/>
         </label>
         <label>
           Player:
@@ -63,6 +65,7 @@ export const BlogForm = ({onAddPost}) => {
             onChange={handleChange}
           />
         </label>
+        <br/>
         <label>
           Post:
           <input
@@ -72,6 +75,7 @@ export const BlogForm = ({onAddPost}) => {
             onChange={handleChange}
           />
         </label>
+        <br/>
         <button type="submit">Add Post</button>
       </form>
     </section>

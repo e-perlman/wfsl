@@ -30,23 +30,15 @@ const useStyles = makeStyles({
 export const EventCard = ({game}) => {
   const classes = useStyles();
   return (
-    <div>
-        {/* <h2>{game.strEvent}</h2>
-        <h3>Date: {game.dateEvent}</h3>
-        <h3>Time: {game.strTime}</h3>
-        <h3>Venue: {game.strVenue}</h3>
-        <h4>Home Team: {game.strHomeTeam}</h4>
-        <h4>Away Team: {game.strHomeTeam}</h4> */}
-        <Card className={classes.root}>
-          <CardContent style={{justifyContent:'center'}}>
-            <Typography gutterBottom variant="h5" component="div">{ game.strEvent} </Typography>
-            <Typography gutterBottom variant="h6" component="div"> Time: {game.strTime} </Typography>
-            <Typography gutterBottom variant="h6" component="div"> Venue: {game.strVenue} </Typography>
-            <Typography gutterBottom variant="h6" component="div"> Home Team: {game.strHomeTeam} </Typography>
-            <Typography gutterBottom variant="h6" component="div"> Away Team: {game.strAwayTeam} </Typography>
-            <Typography gutterBottom variant="h6" component="div"> Score: {game.intHomeScore}-{game.intAwayScore}</Typography>
-          </CardContent>
-        </Card>
-    </div>
+      <Card className={classes.root}>
+        <CardContent style={{justifyContent:'center'}}>
+          <Typography gutterBottom variant="h5" component="div">{ game.strEvent} </Typography>
+          <Typography gutterBottom variant="h6" component="div"> Time: {game.strTime} </Typography>
+          <Typography gutterBottom variant="h6" component="div"> Venue: {game.strVenue} </Typography>
+          <Typography gutterBottom variant="h6" component="div"> Home Team: {game.strHomeTeam} </Typography>
+          <Typography gutterBottom variant="h6" component="div"> Away Team: {game.strAwayTeam} </Typography>
+          <Typography gutterBottom variant="h6" component="div"> Score: {game.intHomeScore}-{game.intAwayScore}</Typography>
+        </CardContent>
+      </Card>
   )
 }

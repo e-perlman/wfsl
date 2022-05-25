@@ -40,8 +40,17 @@ export const BlogPage = () => {
   function handleNewPost(newPost){
     setPosts([...posts,newPost])
   }
+  function handleDeletePost(removedPost){
+    const updatedPosts = posts.filter((post) => post.id !== removedPost.id);
+    setPosts(updatedPosts)
+    fetch(`http://localhost:3001/blog/${removedPost.id}`, {
+    method: "DELETE",
+    })
+    .then((r) => r.json())
+    
+  }
   const gamesList=upcomingGames.map(game=> <EventCard key={game.idEvent} game={game}/>)
-  const blogList=posts.map(post=><BlogCard key={post.title} post={post}/>)
+  const blogList=posts.map(post=><BlogCard key={post.title} post={post} onPostClick={handleDeletePost}/>)
   const classes = useStyles();
   return (
     <div style={{display:'flex'}}>

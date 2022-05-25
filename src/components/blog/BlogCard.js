@@ -1,13 +1,39 @@
 import React from 'react'
+import {
+  Card,
+  CardContent,
+  Typography,
+} from "@material-ui/core";
+import { Button,CardActions } from '@mui/material';
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles({
+  root: {
+    width: 500,
+    justifyContent:'center'
+  },
+  button:{
+    justifyContent:'center',
+    margin:'0 auto',
+    float:'none'
+  }
+});
 
-export const BlogCard = ({post}) => {
+export const BlogCard = ({post,onPostClick}) => {
+  const classes = useStyles();
+  function handleClick(){
+      onPostClick(post)
+  }
   return (
-    <div>
-        <h3>{post.title}</h3>
-        <h4>{post.team}</h4>
-        <h4>{post.player}</h4>
-        <p>{post.post}</p>
-        <button>Delete Post</button>
-    </div>
+    <Card className={classes.root}>
+      <CardContent style={{justifyContent:'center'}}>
+        <Typography gutterBottom variant="h5" component="div">{post.title} </Typography>
+        <Typography gutterBottom variant="h6" component="div"> Team: {post.team} </Typography>
+        <Typography gutterBottom variant="h6" component="div"> Player: {post.player} </Typography>
+        <Typography gutterBottom variant="h6" component="div"> Post: {post.post} </Typography>
+      </CardContent>
+      <CardActions className={classes.button}>
+        <Button onClick={handleClick}>Delete Post</Button>
+      </CardActions>
+    </Card>
   )
 }
