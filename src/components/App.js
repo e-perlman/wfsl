@@ -14,6 +14,15 @@ import {ChooseMyTeamPage} from '../containers/ChooseMyTeamPage';
 import {BlogPage} from '../containers/BlogPage';
 import {PlayerCard} from './player/PlayerCard';
 
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'Bebas Neue',
+      'cursive',
+    ].join(','),
+    fontSize:20
+  },
+  });
 
 function App() {
   const [teams,setTeams]=useState([])
@@ -47,7 +56,9 @@ function App() {
       <CssBaseline/>
       <Router>
         <Navbar/>
-        <Header/>
+        <ThemeProvider theme={theme}>
+          <Header/>
+        </ThemeProvider>
         <Switch>
           <Route path='/leagueplayers'>
             <TeamsPlayersPage teams={teams} players={players}/>
