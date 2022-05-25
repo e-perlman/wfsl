@@ -1,9 +1,8 @@
 import './App.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
 import React,{useEffect,useState} from 'react';
-import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Navbar} from './navigation/Navbar';
 import {Header} from './navigation/Header';
 import {Footer} from './navigation/Footer';
@@ -30,9 +29,9 @@ function App() {
   
   const fetchTeams=async ()=>{
     try{
-      const resp= await fetch('https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=American_NWSL')
+      const resp= await fetch('http://localhost:3001/teams')
       const data= await resp.json()
-      setTeams(data.teams)
+      setTeams(data)
     }catch(error){
       alert(error)
     }
@@ -62,9 +61,6 @@ function App() {
         <Switch>
           <Route path='/leagueplayers'>
             <TeamsPlayersPage teams={teams} players={players}/>
-          </Route>
-          <Route path='/leagueplayers/:id'>
-            <PlayerCard/>
           </Route>
           <Route path='/choosemyteam'>
             <ChooseMyTeamPage players={players} teams={teams}/>

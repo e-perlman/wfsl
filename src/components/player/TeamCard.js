@@ -28,13 +28,11 @@ const useStyles = makeStyles({
   }
 });
 
-export const TeamCard = ({team,onShowRoster}) => {
-  function onTeamClick(){
-    onShowRoster(team)
-  }
+export const TeamCard = ({team}) => {
+
   const classes = useStyles();
   return (
-     <Card className={classes.root} onClick={onTeamClick}>
+     <Card className={classes.root} >
      <CardContent style={{justifyContent:'center'}}>
        <CardMedia
          component="img"

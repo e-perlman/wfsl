@@ -13,9 +13,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap:'wrap'
   }
 }));
-export const TeamList = ({teams,onShowRoster}) => {
+export const TeamList = ({teams}) => {
   const classes = useStyles();
-  const teamCards=teams.map(team=> <TeamCard key={team.idTeam} team={team} onShowRoster={onShowRoster}/>)
+  const teamCards=teams.map(team=> <TeamCard key={team.idTeam} team={team}/>)
   return (
     <Grid className={classes.root}>
       {teamCards}
