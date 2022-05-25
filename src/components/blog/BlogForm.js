@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { Button,TextField,InputAdornment,FormControl,InputLabel} from '@mui/material'
 
 export const BlogForm = ({onAddPost}) => {
     const [formData, setFormData] = useState({
@@ -33,51 +34,85 @@ export const BlogForm = ({onAddPost}) => {
       }
 
   return (
-    <section>
+    <FormControl component='form' onSubmit={handleSubmit}>
       <h1>New Post</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title:
-          <input
-            type="text"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
-        </label>
+      <FormControl>
+        <TextField
+          id='standard-search'
+          label='Title'
+          focused
+          name="title"
+          placeholder='Post Title'
+          value={formData.title}
+          onChange={handleChange}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                {/* <PersonIcon /> */}
+              </InputAdornment>
+            ),
+          }}
+        />
+      </FormControl>
         <br/>
-        <label>
-          Team:
-          <input
-            type="text"
+        <FormControl>
+          <TextField
+            id='standard-search'
+            label='Team'
+            focused
             name="team"
+            placeholder='Team Name'
             value={formData.team}
             onChange={handleChange}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  {/* <PersonIcon /> */}
+                </InputAdornment>
+              ),
+            }}
           />
-          <br/>
-        </label>
-        <label>
-          Player:
-          <input
-            type="text"
+        </FormControl>
+        <br/>
+        <FormControl>
+          <TextField
+            id='standard-search'
+            label='Player'
+            focused
             name="player"
+            placeholder='Player Name'
             value={formData.player}
             onChange={handleChange}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  {/* <PersonIcon /> */}
+                </InputAdornment>
+              ),
+            }}
           />
-        </label>
+        </FormControl>
         <br/>
-        <label>
-          Post:
-          <input
-            type="text"
+        <FormControl>
+          <TextField
+            id='standard-search'
+            label='Post'
+            focused
             name="post"
+            placeholder='Write your post here'
             value={formData.post}
             onChange={handleChange}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  {/* <PersonIcon /> */}
+                </InputAdornment>
+              ),
+            }}
           />
-        </label>
-        <br/>
-        <button type="submit">Add Post</button>
-      </form>
-    </section>
+        </FormControl>
+        
+        <Button type="submit">Add Post</Button>
+    </FormControl>
   )
 }

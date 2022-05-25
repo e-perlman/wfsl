@@ -10,7 +10,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    width: 500,
+    width:'500px',
+    margin: "1em auto",
     justifyContent:'center'
   },
   media: {

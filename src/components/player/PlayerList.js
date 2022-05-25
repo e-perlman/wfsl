@@ -5,17 +5,14 @@ import { Grid } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& > *": {
-      margin: theme.spacing(1)
-    },
     justifyContent:'center',
     
   }
 }));
-export const PlayerList = ({players,title,onPlayerClick,playerButton,playerKey,interactive}) => {
+export const PlayerList = ({players,title,onPlayerClick,playerButton,interactive}) => {
   const classes = useStyles();
 
-  const playerCards=players.map(player=> <PlayerCard key={player[playerKey]} player={player} onPlayerClick={onPlayerClick} playerButton={playerButton} interactive={interactive}/>)
+  const playerCards=players.map(player=> <PlayerCard key={player.idPlayer} player={player} onPlayerClick={onPlayerClick} playerButton={playerButton} interactive={interactive}/>)
   return (
     <Grid className={classes.root}>
       <h2>{title}</h2>

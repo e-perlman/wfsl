@@ -50,7 +50,7 @@ export const TeamCard = ({team,onShowRoster}) => {
          </Typography>
        </CardContent>
      <CardActions className={classes.button}>
-       <Button component={Link} exact to={`/leagueplayers/${team.strTeam}`} size="small" color="primary">
+       <Button component={Link} to={`/leagueplayers/${team.strTeam}`} size="small" color="primary">
          Go to {`${team.strTeam}`} Page
        </Button>
      </CardActions>

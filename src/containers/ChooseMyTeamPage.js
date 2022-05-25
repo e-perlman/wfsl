@@ -29,8 +29,7 @@ export const ChooseMyTeamPage = ({players,teams}) => {
     body: JSON.stringify(addedPlayer),
   })
     .then((r) => r.json())
-
-    setMyPlayers([...myPlayers,addedPlayer])
+    .then(newPlayer=>setMyPlayers([...myPlayers,newPlayer]))
   }
   function removePlayerMyTeam(removedPlayer){
     const updatedMyTeam = myPlayers.filter((player) => player.id !== removedPlayer.id);
@@ -73,7 +72,6 @@ export const ChooseMyTeamPage = ({players,teams}) => {
       <div style={{display:'flex',justifyContent:'center',marginLeft:'auto',marginRight:'auto'}}>
         <PlayerList 
           players={shownPlayers}
-          playerKey={'id'} 
           title={'All Players'} 
           playerButton={'Add to  My Team'}
           onPlayerClick={addPlayerMyTeam}
@@ -81,7 +79,6 @@ export const ChooseMyTeamPage = ({players,teams}) => {
         />
         <PlayerList 
           players={myPlayers} 
-          playerKey={'idPlayer'}
           playerButton={'Remove from My Team'} 
           title={'My Team'} 
           onPlayerClick={removePlayerMyTeam}

@@ -18,7 +18,7 @@ export const PlayerFilter = ({teams,search,onSearchChange,onTeamSelect,onPositio
     <div>
       <FormControl>
         <TextField 
-          id='standard-helperText' 
+          id='standard-search' 
           focused
           label='Search Player Name'
           name="search"  
