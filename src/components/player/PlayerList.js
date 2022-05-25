@@ -6,7 +6,6 @@ import { Grid } from "@mui/material";
 const useStyles = makeStyles((theme) => ({
   root: {
     justifyContent:'center',
-    
   }
 }));
 export const PlayerList = ({players,title,onPlayerClick,playerButton,interactive}) => {

@@ -6,9 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& > *": {
-      margin: theme.spacing(1)
-    },
+    justifyContent:'center'
   }
 }));
 
@@ -37,6 +35,7 @@ export const BlogPage = () => {
     fetchGames()
     fetchPosts()
   },[]);
+
   function handleNewPost(newPost){
     setPosts([...posts,newPost])
   }
@@ -53,15 +52,16 @@ export const BlogPage = () => {
   const blogList=posts.map(post=><BlogCard key={post.title} post={post} onPostClick={handleDeletePost}/>)
   const classes = useStyles();
   return (
-    <div style={{display:'flex'}}>
-      <div>
+    <div style={{display:'flex',justifyContent:'center'}}>
+      <div style={{margin:'1em'}}>
         <h1>Recent Games</h1>
         <div className={classes.root}>
           {gamesList}
         </div>
       </div>
-        <BlogForm onAddPost={handleNewPost}/>
-        <div>
+        <BlogForm style={{margin:'1em', width:'600px'}}onAddPost={handleNewPost}/>
+        <div style={{margin:'1em'}}>
+          <h1>Blog Posts</h1>
           {blogList}
         </div>
     </div>
