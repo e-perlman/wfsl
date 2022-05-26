@@ -1,6 +1,7 @@
 # Women's Fantasy Scocer League (WFSL)
 
 ## Description
+This application is a simplified version of a fantasy league app for women’s soccer, specifically the National Women’s Soccer League (NWSL). This application displays and manipulates a lot of data, including information on twelve teams and hundreds of players. The user can view information about all the teams in the league and their players. The user can also filter through all players and choose which players they want on their team. Additionally, there is a Blog page is which allows the user to see upcoming games and make a blog post where every new post is displayed on the page. 
 
 ## Installation
 
@@ -56,33 +57,11 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Acknowledgement
+All data is from The Sports DB (https://www.thesportsdb.com/)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
