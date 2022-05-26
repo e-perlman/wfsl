@@ -10,6 +10,9 @@ This application is a simplified version of a fantasy league app for women’s s
 3. Run the json-server with : npm run server
 4. Run the REact server with: npm start
 
+## Visual
+![](WFSL-GIF.gif)
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
