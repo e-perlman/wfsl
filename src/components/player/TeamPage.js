@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       
     }
   }));
-export const TeamPage = ({players,teams}) => {
+export const TeamPage = ({players}) => {
   const [showTeam,setShowTeam]=useState({})
     const {teamName}=useParams()
 

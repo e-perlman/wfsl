@@ -1,5 +1,7 @@
 import React from "react"
+
 import {Route,Switch,useRouteMatch} from 'react-router-dom';
+
 import {TeamList} from '../components/player/TeamList'
 import { TeamPage } from "../components/player/TeamPage";
 export const TeamsPlayersPage = ({teams,players}) => {
