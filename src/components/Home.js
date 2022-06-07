@@ -1,5 +1,7 @@
 
 import React from "react"
+import { ClickMe } from "../ClickMe"
+
 export const Home = () => {
   return (
     <div>
